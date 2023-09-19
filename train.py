@@ -17,3 +17,6 @@ model.fit(X_train, y_train)
 joblib.dump(model,os.path.join(model_dir,"logistic_model.joblib"))
 
 print("Training Completed")
+
+with (open("metrics.txt", 'w') as fw:
+  fw.write(f"Accuracy Report: {accuracy_score(y_train, y_pred)}")
