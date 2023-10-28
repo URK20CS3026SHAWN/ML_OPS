@@ -14,10 +14,11 @@ data_dir = "./data"
 model_dir = "./model"
 model = LogisticRegression()
 model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
 
 joblib.dump(model, "logistic_model.joblib")
 
 print("Training Completed")
 
 with open("metrics.txt", 'w') as fw:
-  fw.write(f"Accuracy Report: {accuracy_score(y_train, y_pred)}")
+  fw.write(f"Accuracy Report: {accuracy_score(y_test, y_pred)}")
